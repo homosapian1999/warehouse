@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 
 const WarehouseCard = ({ warehouse }) => {
-  console.log(warehouse.is_registered);
   return (
     <div className="card">
+      <div className="card-bg"></div>
       <h3>{warehouse.name} </h3>
       <p>
         <strong>Code:</strong> {warehouse.code}
@@ -25,7 +25,6 @@ const WarehouseCard = ({ warehouse }) => {
         <strong>Live:</strong>{" "}
         {warehouse.is_live + "" === "true" ? "Yes" : "No"}
       </p>
-      {/* <h2>Extra: {true} </h2> */}
     </div>
   );
 };
