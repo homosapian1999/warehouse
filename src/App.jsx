@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setWarehouses } from "../slices/warehouseSlice";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import WarehousesList from "../components/WarehouseList";
+import WarehouseDetailPage from "../components/WarehouseDetailPage";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -12,9 +15,12 @@ const App = () => {
       .catch((err) => console.log(err));
   }, [dispatch]);
   return (
-    <div>
-      <h1>Hello</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" Component={WarehousesList} />
+        <Route path="/detail/:id" Component={WarehouseDetailPage} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
