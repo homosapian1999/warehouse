@@ -2,9 +2,9 @@ import { useDispatch, useSelector } from "react-redux";
 import WarehouseCard from "./WarehouseCard";
 import { useEffect, useRef, useState } from "react";
 import { setWarehouses } from "../slices/warehouseSlice";
-import { ToastContainer, toast } from "react-toastify";
-// import WarehouseDetailPage from "./WarehouseDetailPage";
-import "react-toastify/dist/ReactToastify.css";
+import {  toast } from "react-toastify";
+
+import { Link } from "react-router-dom";
 
 const WarehousesList = () => {
   const dispatch = useDispatch();
@@ -79,7 +79,7 @@ const WarehousesList = () => {
 
   return (
     <div className="container">
-      <ToastContainer />
+      
       <div className="searchBar">
         <div>
           <input
@@ -132,10 +132,17 @@ const WarehousesList = () => {
       </div>
       <div className="list">
         {searchedWarehouses.map((warehouse) => {
-          return <WarehouseCard warehouse={warehouse} key={warehouse.id} />;
+          return (
+            <Link
+              to={`/detail/${warehouse.id}`}
+              key={warehouse.id}
+              className="card-link"
+            >
+              <WarehouseCard warehouse={warehouse} key={warehouse.id} />
+            </Link>
+          );
         })}
       </div>
-      {/* <WarehouseDetailPage warehouse={warehouses} /> */}
     </div>
   );
 };
