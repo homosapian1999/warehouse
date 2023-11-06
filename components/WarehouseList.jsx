@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import WarehouseCard from "./WarehouseCard";
 import { useEffect, useRef, useState } from "react";
 import { setWarehouses } from "../slices/warehouseSlice";
-import {  toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 import { Link } from "react-router-dom";
 
@@ -79,7 +79,6 @@ const WarehousesList = () => {
 
   return (
     <div className="container">
-      
       <div className="searchBar">
         <div>
           <input
@@ -127,7 +126,9 @@ const WarehousesList = () => {
             <option value="100">Less than 100</option>
             <option value="10">Less than 10</option>
           </select>
-          <button onClick={handleReset}>Reset</button>
+          <button onClick={handleReset} className="reset-button">
+            Reset
+          </button>
         </div>
       </div>
       <div className="list">
