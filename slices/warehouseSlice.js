@@ -13,7 +13,6 @@ const warehouseSlice = createSlice({
     },
     updateWarehouse: (state, action) => {
       const updatedFields = action.payload;
-      console.log(updatedFields);
 
       const index = state.warehouses.findIndex(
         (warehouse) => warehouse.id === updatedFields.id
